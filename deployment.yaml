@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: quickdeploy-app
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: quickdeploy
+
+  template:
+    metadata:
+      labels:
+        app: quickdeploy
+
+    spec:
+      containers:
+      - name: quickdeploy-container
+        image: quickdeploy-app
+        imagePullPolicy: Never
+
+        ports:
+        - containerPort: 3000
