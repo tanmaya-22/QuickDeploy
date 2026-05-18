@@ -25,8 +25,8 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             steps {
-                bat 'kubectl apply -f deployment.yaml --validate=false'
-                bat 'kubectl apply -f service.yaml --validate=false'
+                bat 'set KUBECONFIG=C:\\ProgramData\\Jenkins\\.jenkins\\.kube\\config && kubectl apply -f deployment.yaml --validate=false'
+                bat 'set KUBECONFIG=C:\\ProgramData\\Jenkins\\.jenkins\\.kube\\config && kubectl apply -f service.yaml --validate=false'
             }
         }
 
